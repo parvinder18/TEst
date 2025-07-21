@@ -1,17 +1,1 @@
-@Bean
-    public OpenAPI openAPI() {
-        return new OpenAPI().addSecurityItem(new SecurityRequirement().addList("Authentication"))
-                .components(new Components().addSecuritySchemes("Authentication", createCustomApiKeyScheme()))
-                .info(new Info().title("REST API")
-                        .description("API Services")
-                        .version("1.0.0").contact(new Contact().name("Test").email("support@test.com"))
-                        .license(new License().name("© 2024 test LLC")
-                                .url("https://www.test.com")));
-    }
 
-    private SecurityScheme createCustomApiKeyScheme() {
-        return new SecurityScheme()
-                .type(SecurityScheme.Type.APIKEY)
-                .in(SecurityScheme.In.HEADER)
-                .name("Authorization");
-    }
